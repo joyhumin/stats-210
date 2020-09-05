@@ -1,0 +1,121 @@
+\documentclass[12pt, oneside, a4paper]{article}
+\usepackage[a4paper, left = 2cm, right = 2cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{bm}
+\usepackage{gensymb}
+\usepackage{pgfplotstable}
+\usepackage{float}
+\usepackage{tikz}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+\usepackage{amssymb}
+\newcommand{\divides}{\mid}
+
+%\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{ptm}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\thepage\\}
+\fancyhead[R]{ID: 107664618 \\ Joy \underline{HU}}
+
+\begin{document}
+	\textbf{I have read the declaration on the cover sheet and confirm my agreement with it.}
+	\begin{enumerate}
+		\item %question 01
+		$A$ and $B$ are independent, $\mathbb{P}(B) = \mathbb{P}(B|A) = 0.5$
+		\begin{enumerate}[label = (\alph*)]
+			\item % question (a)
+			FALSE. $\mathbb{P}(A\cap B) = \mathbb{P}(A)\times \mathbb{P}(B) = 0.8 \times 0.5 = 0.4 \neq 0$\\
+			Thus, these two events are not mutually exclusive. 
+			\item % question(B)
+			FALSE. $\mathbb{P}(A \cup B) = \mathbb{P}(A) +\mathbb{P}(B) - \mathbb{P}(A\cap B) = 0.8 + 0.5 - 0.4 = 0.9$\\
+			$\mathbb{P}(A\cap(A\cup B)) = \mathbb{P}(A) = 0.8 \neq \mathbb{P}(A\cap B) \times \mathbb{P}(A)$
+			\item % question(c)
+			FALSE. $A,B$ are independt, $\mathbb{P}(A|B) = \mathbb{P}(A) \neq \mathbb{P}(B)$
+			\item %question (D)
+			TRUE. \\
+			$\mathbb{P}(A\mid C) = \cfrac{\mathbb{P}(A \cap C)}{\mathbb{P}(C)} \; \; \; \mathbb{P}(B\mid C) = \cfrac{\mathbb{P}(B \cap C)}{\mathbb{P}(C)}$. Because they have the same denominator, we are actually comparing $\mathbb{P}(A \cap C)$  and $\mathbb{P}(B \cap C)$. \\
+			We could calculate the range of each. When $ A \subset C, \mathbb{P}_{max}(A \cap C) = \mathbb{P}(A) = 0.8$ while the minimum probability of $\mathbb{P}(A \cap C) = \mathbb{P}(A) + \mathbb{P}(C) - 1 = 0.7$. Therefore, $\mathbb{P}(A\cap C) \in [0.7,0.8]$\\
+			Same calculate for $\mathbb{P}_{max}(B\cap C) = \mathbb{P}(B) = 0.5$ when $B \subset C$, and $\mathbb{P}_{min}(B\cap C) =\mathbb{P}(B) + \mathbb{P}(C) - 1 = 0.4 $. Therefore, $\mathbb{P}(B\cap C) \in [0.4,0.5]$. \\
+			We can tell $\mathbb{P}(A\cap C) > \mathbb{P}(B\cap C)$, therefore $\mathbb{P}(A\mid C)  > \mathbb{P}(B\mid C) $
+			\item % question(E)
+			TRUE. 
+			We calculate that $\mathbb{P}(B) = 0.5 < \mathbb{P}(A)$ which satisfy the claim. 
+		\end{enumerate}
+		\item %question 02
+		\begin{enumerate}[label = (\alph*)]
+			\item % question(a)
+			\begin{enumerate}[label = (\roman*)]
+				\item Let 'Trail' = hockey match\\
+				Let 'Success' = winning, so $\mathbb{P}(\text{Success}) = \cfrac{1}{2}$\\
+				$X \sim \text{Geometric}(p = \cfrac{1}{2})$, because $X$ is the number of failures before the first success .  
+				\item $\mathbb{E}(X) = \cfrac{1-p}{p} = \cfrac{1-\frac{1}{2}}{\frac{1}{2}} = 1$
+				\item $\mathbb{P}(X = 3) = (1-p)^3 p = \frac{1}{2^4} = \frac{1}{16}$
+			\end{enumerate}
+			\item % question b
+						\begin{enumerate}[label = (\roman*)]
+				\item Each match is independent, so, the first win won't have influence on the next loss. 
+				Let 'Success' be the loss, then $\mathbb{P}(\text{Success}) = \frac{1}{3}$\\
+				$X \sim \text{Geometric}(p = \frac{1}{3})$, because X is the number of failures before the first success. 
+				\item $\mathbb{E}(X) = \cfrac{1-p}{p} = \frac{1-\frac{1}{3}}{\frac{1}{3}} = 2$
+				\item $\mathbb{P}(X = 0) = (1-p)^0p = (1-\frac{1}{3})^0 \times \frac{1}{3} = \frac{1}{3}$
+			\end{enumerate}
+		\item %question c
+					\begin{enumerate}[label = (\roman*)]
+			\item $X \sim \text{Binomial}(n = 5, p = \frac{1}{3})$, because $X$ is the number of losses within $5$ matches.
+			\item $\mathbb{E}(X) = np = 5 \times \frac{1}{3} = \frac{5}{3}$
+			\item 
+			$\mathbb{P}(X \geq 1) = 1 - \mathbb{P}(X=0) = 0.868$\\
+			$\mathbb{P}(X \geq 2) = 1- \mathbb{P}(X = 0) - \mathbb{P}(X = 1) = 0.539 $\\
+			$\mathbb{P}(X\geq 2 | X \geq 1) = \cfrac{\mathbb{P}(X\geq 2)}{\mathbb{P}(X\geq 1)} = \frac{0.539}{0.868}  = 0.621$
+		\end{enumerate}
+		\item % question d
+					\begin{enumerate}[label = (\roman*)]
+			\item Let 'Trail' = hockey match\\
+			Let 'Success' = winning, so $\mathbb{P}(\text{Success}) = \frac{1}{2}$\\
+			$X \sim \text{NegBin}(k = 3, p = \frac{1}{2})$, because $X$ is the number of failures before their $kth$ successes.
+			\item $\mathbb{E}(X) = \frac{k(1-p)}{p} = \frac{3\times (1-\frac{1}{2})}{\frac{1}{2}} = 3$
+			\item $\mathbb{P}(X = 1) = \binom{3+1-1}{1}(\frac{1}{2})^3(1-\frac{1}{2})^1 = \frac{3}{16}$
+		\end{enumerate}
+	\item %question e
+				\begin{enumerate}[label = (\roman*)]
+		\item $X$ is the number of draws from first $5$ matches, $X \sim \text{Binomial}(n = 5, p = \frac{1}{6})$\\
+		$Y$ is the number of losses from the last $5$ matches, $Y \sim \text{Binomial}(n =5, p=  \frac{1}{3})$ \\
+		$Z$ is a joint probability distribution of sum of two Binomial distribution with different probability, therefore it's other distribution that it's not covered in class. 
+		\item $\mathbb{E}(Z) = \mathbb{E}(X) + \mathbb{E}(Y) = 5 \times \frac{1}{6} + 5 \times \frac{1}{3} = \frac{5}{2}$
+		\item $\mathbb{P}(Z = 2) = P(X=0,Y=2) + P(X=1,Y=1) + P(X=2,Y=0) = \binom{5}{0}(\frac{1}{6})^0(\frac{5}{6})^5 * \binom{5}{2}(\frac{1}{3})^2(\frac{2}{3})^3 + \binom{5}{1}(\frac{1}{6})^1(\frac{5}{6})^4 * \binom{5}{1}(\frac{1}{3})^1(\frac{2}{3})^4 + 
+		\binom{5}{2}(\frac{1}{6})^2(\frac{5}{6})^3 * \binom{5}{0}(\frac{1}{3})^0(\frac{2}{3})^5 = 0.286$
+	\end{enumerate}
+\item %  question f
+We assume that each penalty stroke is a Bernoulli trial with $P_i $with  success rate$p_i = 0.8^{i-1}$. \\
+%https://stats.stackexchange.com/questions/93852/sum-of-bernoulli-variables-with-different-success-probabilities
+$\mathbb{E}\left[\sum\limits_{i} P_i\right] = \sum \limits_{i} \mathbb{E}(P_i) = \sum \limits_{i}p_i = 3.3616$\\
+$\text{Var}\left[\sum\limits_{i} P_i\right] = \sum\limits_{i} \text{Var}(P_i) = \sum\limits_{i} p_i (1-p_i) = 0.882$
+		\end{enumerate}
+		\item %queation 03
+		\begin{enumerate}[label = (\alph*)]
+			\item Because $X \sim \text{Poisson}(\lambda_1), Y \sim \text{Poisson}(\lambda_2)$, $X$ and $Y$ are independent. Let $Z = X + Y$, then we have $Z \sim \text{Possion}(\lambda_1+\lambda_2)$. We are given $\text{Var}(X) + \text{Var}(Y) = 8$, and in Poisson distribution $\text{Var}(X) = \lambda_1, \text{Var}(Y) = \lambda_2$. So, $Z \sim \text{Poisson}(8)$\\
+			$\mathbb{P}(X+Y \geq 3) = 1 - \mathbb{P}(Z = 0) - \mathbb{P}(Z = 1) - \mathbb{P}(Z = 2) = 1 - (\frac{8^0}{0!} + \frac{8^1}{1!} + \frac{8^2}{2!})e^{-8}$ = 0.986
+			\item %$\mathbb{P}(X=6\mid X+Y = 12) = \cfrac{\mathbb{P}(X = 6}{\mathbb{P}(Z = 12)} = \cfrac{\mathbb{P}(X=6)\mathbb{P}(Y=6)}{\mathbb{P}(Z = 12)}$\\
+			$\hat \lambda_2 = 5 \text{ and } \text{Var}(X) + \text{Var}(Y) = 8$, $\hat \lambda_1 = 8-5 = 3$\\
+			We have $X \sim $ Poisson$(3)$ and $Y \sim $ Poisson$(5)$, independently, and $Z = X + Y$. Then the conditional distribution of $X \mid Z$ is Binomial$(z,p)$, where $p = \cfrac{3}{8}$ \\
+			We are calculate $X\mid Z = 12$, therefore it's Binomial$(12, \cfrac{3}{8})$. \\
+			$\mathbb{P}(X = 6 \mid Z = 12) = \binom{12}{6}(\frac{3}{8})^6 (\frac{5}{8})^6 = 0.153$
+		\end{enumerate}
+	\end{enumerate}
+\end{document}

@@ -1,0 +1,57 @@
+\documentclass[12pt, oneside, a4paper]{article}
+\usepackage[a4paper, left = 2cm, right = 2cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{bm}
+\usepackage{gensymb}
+\usepackage{pgfplotstable}
+\usepackage{float}
+\usepackage{tikz}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+\usepackage{amssymb}
+\newcommand{\divides}{\mid}
+
+%\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{ptm}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\thepage\\}
+\fancyhead[R]{ID: 107664618 \\ Joy \underline{HU} \\ UPI: mhu138}
+
+\begin{document}
+	\begin{enumerate}
+		\item \begin{enumerate}[label = (\alph*)]
+			\item $F_X(x)$ is cumulative distribution function of $X$, and $X$ is a random variable represents the number shown when we roll the $D_1$ which has $9$ sides, so the distribution of $X$ is discrete. When $X < 1$, the probability will be $0$, the cumulative distribution $F_X(x) =0$ when $x \in (-\infty, 1)$, and $F_X(x) = 1$ when $x \in (9, \infty)$ \\
+			When $x \in [1,9], \mathbb{P} (X = x) = \log_{10}(\cfrac{x+1}{x})$ and $F_X(x) = \log_{10}(\frac{1+1}{1}) + \log_{10}(\frac{1+2}{2}) \dots \log_{10}(\frac{x+1}{x})$ \\
+			$F_X(x) = \log_{10}(\cfrac{2 \times 3 \times \dots \times (x+1)}{1 \times 2 \times \dots \times x}) = \log_{10}(x + 1)$. Because $x$ can only be an integer and within the range $[1,9]$, therefore $\lfloor x \rfloor = x$. So, $F_X(x) = \log_{10}(\lfloor x \rfloor  + 1)$ when $x \in [1,9]$
+			\item To calculate $\mathbb{P}(X + Y = 10)$, there are $9$ combinations. 
+			$X = 1, Y = 9$ or $X = 2, Y = 8$ or $\dots X = 8, Y = 2$ or $X = 9, Y = 1$,  therefore, \\
+			$\mathbb{P}(X+Y = 10) = \mathbb{P}(X=1)\times \mathbb{P}(Y=9) + \mathbb{P}(X=2)\times \mathbb{P}(Y=8) \dots  \mathbb{P}(X=9)\times \mathbb{P}(Y=1) = \left(\mathbb{P}(X = 1) +\mathbb{P}(X = 2) \dots \mathbb{P}(X=9)\right) \times \cfrac{1}{9} = F_X(9) \times \frac{1}{9} = \frac{1}{9}$
+		\end{enumerate}
+		\item \begin{enumerate}[label = (\alph*)]
+			\item From the truth table, we noticed that $Z$ only has two outcome $0$ or $1$, therefore it's a Bernoulli distribution. 
+			When $Z=1$, $\mathbb{P}(Z=1) = \mathbb{P}(X =1) \times \mathbb{P}(Y=0) + \mathbb{P}(X =0) \times \mathbb{P}(Y=1) = \frac{1}{10} \times 
+		\frac{1}{2} + \frac{9}{10}\times \frac{1}{2} = \frac{1}{2}$\\
+		So $Z \sim $ Bernoulli $(\frac{1}{2})$
+			\item $\mathbb{P}(Y = 0, Z = 0) = \mathbb{P}(Y = 0 \mid Z = 0) \times \mathbb{P}(Z = 0) \\
+			= \cfrac{\mathbb{P}(X=0, Y=0)}{\mathbb{P}(Z=0)} \times \mathbb{P}(Z=0)
+			= \cfrac{9}{10} \times \cfrac{1}{2} = \cfrac{9}{20}$
+			\item no, variables $Y, Z$ are not independent. As $\mathbb{P}(Y = 0, Z = 0) \neq \mathbb{P}(Y = 0) \times \mathbb{P}(Z=0)$
+ 		\end{enumerate}
+	\end{enumerate}
+\end{document}
