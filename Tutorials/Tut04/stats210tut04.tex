@@ -1,0 +1,93 @@
+\documentclass[12pt, oneside, a4paper]{article}
+\usepackage[a4paper, left = 2cm, right = 2cm, top=3cm, bottom=2.5cm]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{enumitem}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\usepackage{bm}
+\usepackage{gensymb}
+\usepackage{pgfplotstable}
+\usepackage{float}
+\usepackage{tikz}
+\makeatletter
+\renewcommand*\env@matrix[1][*\c@MaxMatrixCols c]{%
+	\hskip -\arraycolsep
+	\let\@ifnextchar\new@ifnextchar
+	\array{#1}}
+\makeatother
+\usepackage{amssymb}
+\newcommand{\divides}{\mid}
+
+%\renewcommand{\familydefault}{\sfdefault}
+\renewcommand{\rmdefault}{ptm}
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{\thepage\\}
+\fancyhead[R]{ID: 107664618 \\ Joy \underline{HU} \\ UPI: mhu138}
+\begin{document}
+	\begin{enumerate}
+		\item \begin{enumerate}[label = (\alph*)]
+			\item $X$ is the number of boys out of Garfield's seven children, it's has binomial distribution. Therefore, the distribution of $X$ is \\
+			$X \sim \text{Binimoal}(7,p)$
+			\item $X$ is the number of boys out of Garfield's seven children and he has $5$ sons, therefore $x = 5$
+			\item The likelihood function: \\
+			\begin{align*}
+				L(p; 5) & = \mathbb{P}(X =5) \text{ when } X \sim \text{Binimoal}(7,p),  \\
+				& = \binom{7}{5}p^5(1-p)^2 \\
+				& = 21p^5(1-p)^2 \quad \text{ for }0 < p < 1
+			\end{align*}
+			\item $L(\frac{1}{2}; 5) = 21 \times (\frac{1}{2})^5(1-\frac{1}{2})^2 =0.164 $
+			\item $L(\frac{5}{7}; 5) = 21 \times (\frac{5}{7})^5(1-\frac{5}{7})^2 = 0.319 $
+				\item $L(0.8; 5) = 21 \times 0.8^5(1-0.8)^2 =  0.275$
+				\item The graph is attached below
+				\begin{figure}[H]
+					\centering
+					\includegraphics[width=0.7\linewidth]{"PNG image 2020-08-30 00_03_38"}
+					\label{fig:png-image-2020-08-30-000338}
+				\end{figure}
+				
+				
+			\item \begin{align*}
+				\dfrac{dL}{dp} & = 21 \times \left(5\times p^4 \times (1-p) ^2 + p^5 \times 2\times (1-p) \times (-1)\right) \quad \text{Product rule}\\
+				& = 21 \times p^4 \times(1-p) \times (5\times (1-p) - 2p) \\
+				& = 21p^4(1-p)(5-7p)
+			\end{align*}
+			\item The maximising value of $p$ occurs when $\left. \dfrac{dL}{dp}\right |_{p = \hat p} = 0 $, this gives: 
+			\begin{align*}
+				\left .\dfrac{dL}{dp}\right |_{p = \hat p} & = 21\hat{p}^4(1-\hat{p})(5-7\hat{p}) = 0 \\
+				& \implies 5 - 7\hat{p} = 0 \\
+				& \implies \hat{p} = \cfrac{5}{7}
+			\end{align*}
+		\item We have decided that a sensible parameter estimate for $p$ is the maximum likelihood estimate ($\hat{p}=\frac{5}{7}$): the value of $p$ at which the observation $X=5$ is more likely than at any other value of $p$.
+			\end{enumerate}
+		\item 
+		\begin{enumerate}[label = (\alph*)]
+			\item The likelihood function:\\
+			\begin{align*}
+			 L(p; 3) & = \mathbb{P}(X = 3 ) \text{ when }X \sim \text{Geometric}(p)\\
+				L(p; 3) & = (1-p)^3p \text{ for } 0 < p < 1
+			\end{align*}
+			\item \begin{align*}
+				\cfrac{dL}{dp} & = (1-p)^3 + p\times 3\times (1-p)^2 \times (-1) \quad (\text{by product rule})\\
+				& = (1-p)^3 -3p(1-p)^2 \\
+				& = (1-p)^2 (1-p-3p)\\
+				& = (1-p)^2(1-4p)
+			\end{align*}
+			\item The miximising value of $p$ occurs when $\left.\cfrac{dL}{dp} \right |_{p = \hat{p}}= 0$, this gives
+			\begin{align*}
+				\left.\cfrac{dL}{dp} \right |_{p = \hat{p}}& = (1-\hat{p})^2(1-4\hat{p})  = 0\\
+				 \implies 1-4\hat{p} & = 0\\
+				 \hat{p} &  = \cfrac{1}{4}
+			\end{align*}
+			\item In common-sense, Sammie first succeeded on his fourth jump, we would think that the probability of success would be $\frac{1}{4}$. And our $MLE$ indeed same as our common-sense. 
+		\end{enumerate}
+	\end{enumerate}
+\end{document}
